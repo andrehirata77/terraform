@@ -21,7 +21,7 @@ data "aws_ami" "ubuntu_west" {
   owners = ["099720109477"] # Ubuntu
 }
 
-resource "aws_instance" "web1" {
+resource "aws_instance" "web" {
   ami           = data.aws_ami.ubuntu.id
   instance_type = "t2.micro"
 
