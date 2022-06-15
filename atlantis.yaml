@@ -27,8 +27,8 @@ workflows:
       - run: echo "Teste workflow apply"
       - apply
       - run: "> ~/.ssh/known_hosts"
-      - run: sh /home/testadmin/atualiza_ansible.sh
-      - run: ansible-playbook /home/testadmin/ansible/playbook.yaml
+#      - run: sh /home/testadmin/atualiza_ansible.sh
+#      - run: ansible-playbook /home/testadmin/ansible/playbook.yaml
   destroy:
     plan:
       steps:
