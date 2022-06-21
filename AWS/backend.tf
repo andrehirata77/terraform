@@ -22,7 +22,7 @@ terraform {
     hostname = "app.terraform.io"
     organization = "ccoe-ttech"
     workspaces {
-      name = "atlantis-aws"
+      name = "dev-hirata"
     }
   }
 }
