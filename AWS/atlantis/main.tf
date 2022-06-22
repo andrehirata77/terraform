@@ -71,7 +71,7 @@ module "ssm_parameter_igw" {
   ssm_type        = "String"
   ssm_value       = module.vpc.aws_internet_gateway_id
 }
-#teste
+
 module "ssm_parameter_sg" {
   source          = "../modules/ssm"
   ssm_name        = "/atlantis/sg_id"
