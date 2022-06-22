@@ -2,7 +2,6 @@
 #   region  = var.region
 #   profile = var.profile
 # }
-#
 
 terraform {
   required_providers {
