@@ -22,6 +22,7 @@ module "security_group_rule-4141" {
   sg_from_rule_port = "4141"
   sg_to_rule_port   = "4141"
   sg_rule_protocol  = "tcp"
+  sg_rule_cidr_blocks = ["0.0.0.0/0"]
 }
 
 module "security_group_rule-22" {
@@ -31,7 +32,7 @@ module "security_group_rule-22" {
   sg_from_rule_port   = "22"
   sg_to_rule_port     = "22"
   sg_rule_protocol    = "tcp"
-  sg_rule_cidr_blocks = ["201.69.232.217/32"]
+  sg_rule_cidr_blocks = ["201.8.154.210/32"]
 }
 
 module "security_group_rule-output" {
@@ -53,4 +54,28 @@ module "ec2_atlantis" {
   security_group_id           = module.security_group.security_group_id
   associate_public_ip_address = true
   user_data                   = "../scripts/atlantis.sh"
+}
+
+module "ssm_parameter_vpc" {
+  source          = "../modules/ssm"
+  ssm_name        = "/atlantis/vpc_id"
+  ssm_description = "VPC ID of Atlantis Server"
+  ssm_type        = "String"
+  ssm_value       = module.vpc.vpc_id
+}
+
+module "ssm_parameter_igw" {
+  source          = "../modules/ssm"
+  ssm_name        = "/atlantis/igw_id"
+  ssm_description = "Internet Gateway ID of VPC"
+  ssm_type        = "String"
+  ssm_value       = module.vpc.aws_internet_gateway_id
+}
+
+module "ssm_parameter_sg" {
+  source          = "../modules/ssm"
+  ssm_name        = "/atlantis/sg_id"
+  ssm_description = "Security group ID of Atlantis Server"
+  ssm_type        = "String"
+  ssm_value       = module.security_group.security_group_id
 }
