@@ -1,4 +1,5 @@
 #!/bin/bash
+#
 wget https://github.com/runatlantis/atlantis/releases/download/v0.19.3/atlantis_linux_amd64.zip
 sudo apt -y install unzip
 unzip atlantis_linux_amd64
