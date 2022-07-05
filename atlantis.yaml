@@ -18,18 +18,18 @@ projects:
 
 workflows:
 # Deploy_Azure
-  # create_ansible:
-  #   plan:
-  #     steps:
-  #     - init
-  #     - plan
-  #   apply:
-  #     steps:
-  #     - run: echo "Teste workflow apply"
-  #     - apply
-  #     - run: "> ~/.ssh/known_hosts"
-  #     - run: sh /home/ubuntu/atualiza_ansible.sh
-  #     - run: ansible-playbook /home/ubuntu/ansible/playbook.yaml
+  create_ansible:
+    plan:
+      steps:
+      - init
+      - plan
+    apply:
+      steps:
+      - run: echo "Teste workflow apply"
+      - apply
+      - run: "> ~/.ssh/known_hosts"
+      - run: sh /home/ubuntu/atualiza_ansible.sh
+      - run: ansible-playbook /home/ubuntu/ansible/playbook.yaml
 
 # Deploy_AWS
   deploy_aws:
