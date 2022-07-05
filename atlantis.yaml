@@ -28,7 +28,7 @@ workflows:
       - run: echo "Teste workflow apply"
       - apply
       - run: "> ~/.ssh/known_hosts"
-      - run: sh /home/ubuntu/atualiza_ansible.sh
+      - run: sh /home/ubuntu/ansible/atualiza_ansible.sh
       - run: ansible-playbook /home/ubuntu/ansible/playbook.yaml
 
 # Deploy_AWS
