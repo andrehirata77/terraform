@@ -32,7 +32,7 @@ module "security_group_rule-22" {
   sg_from_rule_port   = "22"
   sg_to_rule_port     = "22"
   sg_rule_protocol    = "tcp"
-  sg_rule_cidr_blocks = ["201.69.235.152/32"]
+  sg_rule_cidr_blocks = ["201.69.234.203/32"]
 }
 
 module "security_group_rule-output" {
